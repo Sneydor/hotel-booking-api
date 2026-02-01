@@ -1,0 +1,50 @@
+[project]
+name = "hotel-booking"
+version = "0.1.0"
+description = "Hotel Room Booking Service"
+authors = [
+    {name = "Your Name", email = "your.email@example.com"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "Django>=4.2,<5.0",
+    "djangorestframework>=3.14,<4.0",
+    "psycopg2-binary>=2.9,<3.0",
+    "python-dotenv>=1.0,<2.0"
+]
+
+[project.scripts]
+start = "manage:main"
+migrate = "django.core.management:execute_from_command_line"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+# Оставь пустым или для дополнительных настроек
+name = "hotel-booking"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4"
+pytest-django = "^4.5"
+ruff = "^0.1"
+pre-commit = "^3.5"
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "hotel_api.settings"
+python_files = "tests.py test_*.py *_tests.py"
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+select = ["E", "W", "F", "I"]
+ignore = ["E501"]
+
+packages = [
+    { include = "hotel_booking", from = "src" },
+]
