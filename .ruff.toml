@@ -1,0 +1,19 @@
+[format]
+# Соответствуем конфигурации black
+line-length = 88
+
+[lint]
+# Включаем рекомендуемые правила
+select = ["E", "W", "F", "I", "B", "UP"]
+ignore = []
+
+# Специфичные правила для Django
+[lint.per-file-ignores]
+"*/migrations/*.py" = ["F841", "E501"]
+"*/tests/*.py" = ["S101"]
+
+# Настройки сортировки импортов
+[lint.isort]
+known-first-party = ["hotel_api", "bookings"]
+
+target-version = "py311"
